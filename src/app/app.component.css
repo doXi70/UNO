@@ -1,0 +1,27 @@
+.field {
+  margin: 20px;
+}
+
+.card-outer-wrapper {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  width: 50px;
+  height: 100px;
+}
+
+.card-inner-circle {
+  border: solid;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-circle-content {
+  font-size: 25px;
+}
