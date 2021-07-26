@@ -18,6 +18,7 @@ export class AppComponent {
   playerDeck: Card[] = [];
 
   isPlayerTurn: boolean = true;
+  seeComputerDeck: boolean = false;
 
   constructor() {}
 
@@ -79,34 +80,56 @@ export class AppComponent {
     }
   }
 
+  searchForACard(): Card {
+    let found: Card = null;
+
+    for (let i = 0; i < this.computerDeck.length; i++) {
+      const currCard = this.computerDeck[i];
+
+      if (
+        currCard.color === this.lastPlayedCard.color ||
+        currCard.content === this.lastPlayedCard.content
+      ) {
+        return currCard;
+      }
+    }
+
+    return found;
+  }
+
   computerLogic(): void {
     setInterval(() => {
-      if (this.isPlayerTurn === false && this.computerDeck.length > 0) {
+      if (
+        this.isPlayerTurn === false &&
+        this.computerDeck.length > 0 &&
+        this.playerDeck.length > 0
+      ) {
         setTimeout(() => {
-          let found: Card = this.computerDeck.find(
-            x =>
-              x.color === this.lastPlayedCard.color ||
-              x.content === this.lastPlayedCard.content
-          );
-
+          let found: Card = this.searchForACard();
           while (!found) {
             this.computerDeck = this.computerDeck.concat(this.drawCards(1));
-            found = this.computerDeck.find(
-              x =>
-                x.color === this.lastPlayedCard.color ||
-                x.content === this.lastPlayedCard.content
-            );
+            found = this.searchForACard();
           }
 
-          this.removeCard(this.computerDeck, found);
+          console.log('-----------------');
+          console.log(this.lastPlayedCard);
+          console.log(found);
+          console.log(this.computerDeck);
+
           this.lastPlayedCard = Object.assign(found);
+          this.removeCard(this.computerDeck, found);
+          console.log('-----------------');
+
+          console.log(this.lastPlayedCard);
+          console.log(found);
+          console.log(this.computerDeck);
 
           if (this.computerDeck.length !== 0) {
             this.isPlayerTurn = true;
           }
-        }, 1000);
+        }, 100);
       }
-    }, 2000);
+    }, 3000);
   }
 
   private getRandomInt(max: number) {

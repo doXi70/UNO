@@ -6,9 +6,12 @@
     <span>Deck Cards: {{deck.length}} </span>
     <br>
     <span *ngIf="computerDeck.length === 0">Computer Wins!</span>
+    <button (click)="seeComputerDeck = !seeComputerDeck"> Show Computer Cards </button>
     <br>
-    <card-preview *ngFor="let card of computerDeck" [card]="card">
-    </card-preview>
+    <div *ngIf="seeComputerDeck">
+      <card-preview *ngFor="let card of computerDeck" [card]="card">
+      </card-preview>
+    </div>
   </div>
 
   <div class="played-cards-wrapper">
