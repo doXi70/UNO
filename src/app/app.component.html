@@ -1,7 +1,31 @@
 <div class="field">
 
-  <card-preview *ngFor="let card of deck"
-      [card]="card">
+  <div class="computer-play-field-wrapper">
+    <span>Coputer Cards: {{computerDeck.length}} </span>
+    <br>
+    <span>Deck Cards: {{deck.length}} </span>
+    <br>
+    <span *ngIf="computerDeck.length === 0">Computer Wins!</span>
+    <br>
+    <card-preview *ngFor="let card of computerDeck" [card]="card">
+    </card-preview>
+  </div>
 
-  </card-preview>
+  <div class="played-cards-wrapper">
+    <card-preview [card]="lastPlayedCard" (drawCard)="onCardDraw()">
+
+    </card-preview>
+  </div>
+
+  <div class="player-play-field-wrapper">
+    <card-preview *ngFor="let card of playerDeck" [card]="card" [isPlayerCard]="true"
+      (selectedCard)="onCardSelection($event)" (drawCard)="onCardDraw()">
+
+    </card-preview>
+
+    <div *ngIf="playerDeck.length === 0">
+      Player Wins!
+    </div>
+
+  </div>
 </div>

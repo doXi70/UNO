@@ -3,7 +3,7 @@
 }
 
 .card-outer-wrapper {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: solid;
@@ -24,4 +24,30 @@
 
 .card-circle-content {
   font-size: 25px;
+}
+
+.computer-play-field-wrapper {
+  border: 2px solid black;
+  max-width: 1000px;
+  max-height: 300px;
+  min-height: 300px;
+  overflow: auto;
+}
+
+.player-play-field-wrapper {
+  border: 2px solid black;
+  max-width: 1000px;
+  max-height: 300px;
+  min-height: 300px;
+  overflow: auto;
+}
+
+.played-cards-wrapper {
+  border: 2px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 1000px;
+  max-height: 120px;
+  min-height: 120px;
+  overflow: auto;
 }

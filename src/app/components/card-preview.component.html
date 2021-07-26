@@ -1,10 +1,10 @@
 <div class="field">
 
-  <div class="card-outer-wrapper" [ngClass]="getCardColor()">
+  <div class="card-outer-wrapper" [ngClass]="getCardColor()" (click)="onCardClick()">
 
-    <div class="card-inner-circle" style="background: white">
+    <div class="card-inner-circle">
 
-      <div class="card-circle-content" style="color: black">
+      <div class="card-circle-content">
         {{ card.content }}
       </div>
 

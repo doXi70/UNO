@@ -1,9 +1,10 @@
 .field {
-  margin: 20px;
+  margin: 10px;
+  display: inline-block;
 }
 
 .card-outer-wrapper {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: solid;
@@ -16,6 +17,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  background: white;
 
   display: flex;
   align-items: center;
@@ -24,6 +26,7 @@
 
 .card-circle-content {
   font-size: 25px;
+  color: black;
 }
 
 .yellow {
